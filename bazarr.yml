@@ -1,0 +1,16 @@
+version: "2.1"
+services:
+  bazarr:
+    image: linuxserver/bazarr
+    container_name: bazarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+    volumes:
+      - /home/jonas/docker/appdata/bazarr:/config
+      #- </path/to/movies>:/movies
+      #- </path/to/tv>:/tv
+    ports:
+      - 6767:6767
+    restart: always

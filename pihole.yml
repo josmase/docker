@@ -1,0 +1,20 @@
+version: "2.1"
+services:
+  pihole:
+    image: pihole/pihole
+    container_name: pihole
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+      - ServerIP=192.168.1.4
+      - DNSMASQ_LISTENING=all
+    volumes:
+      - /home/jonas/docker/appdata/pihole/pihole:/etc/pihole/
+      - /home/jonas/docker/appdata/pihole/dnsmasq.d:/etc/dnsmasq.d/
+    ports:
+      - 53:53
+      - 67:67
+      - 80:80
+      - 443:443
+    restart: unless-stopped

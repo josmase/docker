@@ -1,0 +1,15 @@
+version: "2.1"
+services:
+  kitana:
+    image: pannal/kitana
+    container_name: kitana
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+    volumes:
+      - /home/jonas/docker/appdata/kitana:/app/data
+      #- /mnt/downloads:/downloads
+    ports:
+      - 31337:31337
+    restart: unless-stopped

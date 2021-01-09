@@ -1,0 +1,12 @@
+version: "2.1"
+services:
+  homeassistant:
+    image: homeassistant/home-assistant
+    container_name: homeassistant
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+    volumes:
+      - /home/jonas/docker/appdata/homeassistant:/config
+    restart: unless-stopped
