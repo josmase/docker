@@ -1,0 +1,26 @@
+version: "2.1"
+services:
+  unifi:
+    image: haugene/transmission-openvpn:dev
+    container_name: transmission
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+      - OPENVPN_CONFIG=norway
+      - OPENVPN_PROVIDER=PIA
+      - LOCAL_NETWORK=192.168.1.0/24
+      - OPENVPN_OPTS="--inactive 3600 --ping 10 --ping-exit 60 --mute-replay-warnings"
+      - TRANSMISSION_DOWNLOAD_DIR=/downloads/complete
+      - TRANSMISSION_INCOMPLETE_DIR=/downloads/incomplete
+      - PIA_OPENVPN_CONFIG_BUNDLE=openvpn-tcp-nextgen
+    env_file:
+      - transmission.env
+    volumes:
+      #- /mnt/user/downloads/Torrent/data/:/data
+      #- /mnt/user/downloads/:/downloads
+      #- /mnt/user/downloads/Torrent/watch/:/watch
+      #- /mnt/user/downloads/Torrent/torrent/:/mnt/user/T_Media/Torrent/
+    ports:
+      - 9091:9091
+    restart: unless-stopped
