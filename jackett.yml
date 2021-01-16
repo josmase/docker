@@ -3,10 +3,8 @@ services:
   jackett:
     image: linuxserver/jackett
     container_name: jackett
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Stockholm
+    env_file:
+      - default.env
     volumes:
       - /home/jonas/docker/appdata/jackett:/config
       #- /mnt/downloads:/downloads

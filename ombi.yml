@@ -3,10 +3,8 @@ services:
   ombi:
     image: linuxserver/ombi
     container_name: ombi
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Stockholm
+    env_file:
+      - default.env
     volumes:
       - /home/jonas/docker/appdata/ombi:/config
       #- /mnt/downloads:/downloads

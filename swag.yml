@@ -4,15 +4,14 @@ services:
     image: linuxserver/swag
     container_name: swag
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Stockholm
       - EMAIL=lundbergjonas96@gmail.com
       - URL=hejsan.xyz
       - SUBDOMAINS=wildcard
       - ONLY_SUBDOMAINS=false
       - VALIDATION=dns
       - DNSPLUGIN=cloudflare
+    env_file:
+      - default.env
     volumes:
       - /home/jonas/docker/appdata/swag:/config
     ports:

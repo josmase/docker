@@ -4,11 +4,10 @@ services:
     image: pihole/pihole
     container_name: pihole
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Stockholm
       - ServerIP=192.168.1.4
       - DNSMASQ_LISTENING=all
+    env_file:
+      - default.env
     volumes:
       - /home/jonas/docker/appdata/pihole/pihole:/etc/pihole/
       - /home/jonas/docker/appdata/pihole/dnsmasq.d:/etc/dnsmasq.d/

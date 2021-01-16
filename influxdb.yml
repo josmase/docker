@@ -3,10 +3,8 @@ services:
   influxdb:
     image: influxdb/influxdb
     container_name: influxdb
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Stockholm
+    env_file:
+      - default.env
     volumes:
       - /home/jonas/docker/appdata/influxdb:/var/lib/influxdb
     ports:

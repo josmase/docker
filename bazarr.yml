@@ -3,10 +3,8 @@ services:
   bazarr:
     image: linuxserver/bazarr
     container_name: bazarr
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Stockholm
+    env_file:
+      - default.env
     volumes:
       - /home/jonas/docker/appdata/bazarr:/config
       #- </path/to/movies>:/movies

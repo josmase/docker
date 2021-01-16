@@ -3,10 +3,8 @@ services:
   emby:
     image: linuxserver/emby
     container_name: emby
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Stockholm
+    env_file:
+      - default.env
     volumes:
       - /home/jonas/docker/appdata/emby:/config
      # - /path/to/tvshows:/data/tvshows
