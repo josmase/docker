@@ -4,7 +4,7 @@ services:
     image: linuxserver/emby
     container_name: emby
     env_file:
-      - default.env
+      - ../default.env
     volumes:
       - /home/jonas/docker/appdata/emby:/config
       - /mnt/storage/files/series:/data/tvshows
@@ -12,4 +12,4 @@ services:
     ports:
       - 8096:8096
       - 8920:8920
-    restart: unless-stopped
+    restart: always

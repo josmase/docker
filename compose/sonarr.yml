@@ -4,11 +4,11 @@ services:
     image: linuxserver/sonarr
     container_name: sonarr
     env_file:
-      - default.env
+      - ../default.env
     volumes:
       - /home/jonas/docker/appdata/sonarr:/config
       - /mnt/storage/files/series:/media
       - /mnt/storage/downloads/complete/series:/downloads/complete/series
     ports:
       - 8989:8989 
-    restart: unless-stopped
+    restart: always

@@ -1,12 +1,9 @@
 version: "2.1"
 services:
-  unifi:
+  transmission:
     image: haugene/transmission-openvpn:dev
     container_name: transmission
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Stockholm
       - OPENVPN_CONFIG=norway
       - OPENVPN_PROVIDER=PIA
       - LOCAL_NETWORK=192.168.1.0/24
@@ -15,10 +12,14 @@ services:
       - TRANSMISSION_INCOMPLETE_DIR=/downloads/incomplete
       - PIA_OPENVPN_CONFIG_BUNDLE=openvpn-tcp-nextgen
     env_file:
-      - transmission.env
+      - ../transmission.env
+      - ../default.env
     volumes:
       - /home/jonas/docker/appdata/transmission/:/data
       - /mnt/storage/downloads/:/downloads
     ports:
       - 9091:9091
-    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+    network_mode: host
+    restart: always

@@ -4,7 +4,7 @@ services:
     image: linuxserver/bazarr
     container_name: bazarr
     env_file:
-      - default.env
+      - ../default.env
     volumes:
       - /home/jonas/docker/appdata/bazarr:/config
       - /mnt/storage/files/movies:/movies

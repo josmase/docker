@@ -4,11 +4,11 @@ services:
     image: linuxserver/radarr
     container_name: radarr
     env_file:
-      - default.env
+      - ../default.env
     volumes:
       - /home/jonas/docker/appdata/radarr:/config
       - /mnt/storage/files/movies:/movies
       - /mnt/storage/downloads/complete/movies:/downloads/complete/movies
     ports:
       - 7878:7878 
-    restart: unless-stopped
+    restart: always

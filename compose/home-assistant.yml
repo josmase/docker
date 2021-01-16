@@ -3,8 +3,9 @@ services:
   homeassistant:
     image: homeassistant/home-assistant
     container_name: homeassistant
+    network_mode: host
     env_file:
-      - default.env
+      - ../default.env
     volumes:
       - /home/jonas/docker/appdata/homeassistant:/config
-    restart: unless-stopped
+    restart: always

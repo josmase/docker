@@ -4,10 +4,10 @@ services:
     image: influxdb/influxdb
     container_name: influxdb
     env_file:
-      - default.env
+      - ../default.env
     volumes:
       - /home/jonas/docker/appdata/influxdb:/var/lib/influxdb
     ports:
       - 8083:8083
       - 8086:8086
-    restart: unless-stopped
+    restart: always

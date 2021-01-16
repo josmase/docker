@@ -4,11 +4,9 @@ services:
     image: grafana/grafana
     container_name: grafana
     env_file:
-      - default.env
+      - ../default.env
     volumes:
       - /home/jonas/docker/appdata/grafana:/var/lib/grafana
-     # - /path/to/tvshows:/data/tvshows
-     # - /path/to/movies:/data/movies
     ports:
       - 3000:3000
-    restart: unless-stopped
+    restart: always

@@ -4,11 +4,11 @@ services:
     image: linuxserver/plex
     container_name: plex
     env_file:
-      - default.env
+      - ../default.env
     volumes:
       - /home/jonas/docker/appdata/plex:/config
       - /tmp/transcode/plex:/transcode
       - /mnt/storage/files/movies:/movies
       - /mnt/storage/files/series:/tv
     network_mode: host
-    restart: unless-stopped
+    restart: always

@@ -7,7 +7,7 @@ services:
       - ServerIP=192.168.1.4
       - DNSMASQ_LISTENING=all
     env_file:
-      - default.env
+      - ../default.env
     volumes:
       - /home/jonas/docker/appdata/pihole/pihole:/etc/pihole/
       - /home/jonas/docker/appdata/pihole/dnsmasq.d:/etc/dnsmasq.d/
@@ -16,4 +16,4 @@ services:
       - 67:67
       - 80:80
       - 443:443
-    restart: unless-stopped
+    restart: always

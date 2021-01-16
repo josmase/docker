@@ -4,17 +4,17 @@ services:
     image: linuxserver/swag
     container_name: swag
     environment:
-      - EMAIL=lundbergjonas96@gmail.com
+      - EMAIL=josnase@gmail.com
       - URL=hejsan.xyz
       - SUBDOMAINS=wildcard
       - ONLY_SUBDOMAINS=false
       - VALIDATION=dns
       - DNSPLUGIN=cloudflare
     env_file:
-      - default.env
+      - ../default.env
     volumes:
       - /home/jonas/docker/appdata/swag:/config
     ports:
       - 8080:80
       - 4433:443
-    restart: unless-stopped
+    restart: always

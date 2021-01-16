@@ -4,15 +4,15 @@ services:
     image: linuxserver/unifi-controller
     container_name: unifi
     env_file:
-      - default.env
+      - ../default.env
     volumes:
       - /home/jonas/docker/appdata/unifi:/config
     ports:
       - 3478:3478
-      - 8080:8080
+      - 8282:8080
       - 8443:8443
       - 8880:8880
       - 8843:8843
       - 10001:10001
       - 6789:6789
-    restart: unless-stopped
+    restart: always

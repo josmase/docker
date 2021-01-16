@@ -4,10 +4,10 @@ services:
     image: linuxserver/tautulli
     container_name: tautulli
     env_file:
-      - default.env
+      - ../default.env
     volumes:
       - /home/jonas/docker/appdata/tautulli:/config
-      - "/home/jonas/docker/appdata/plex/Library/Application Support/Plex Media Server/Logs/":/logs
+      - /home/jonas/docker/appdata/plex/Library/Application Support/Plex Media Server/Logs/:/logs
     ports:
       - 8181:8181
-    restart: unless-stopped
+    restart: always

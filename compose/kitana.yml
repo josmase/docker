@@ -4,10 +4,9 @@ services:
     image: pannal/kitana
     container_name: kitana
     env_file:
-      - default.env
+      - ../default.env
     volumes:
       - /home/jonas/docker/appdata/kitana:/app/data
-      #- /mnt/downloads:/downloads
     ports:
       - 31337:31337
-    restart: unless-stopped
+    restart: always

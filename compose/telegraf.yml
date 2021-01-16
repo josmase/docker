@@ -1,6 +1,6 @@
 version: "2.1"
 services:
-  telegra:
+  telegraf:
     image: telegraf:latest
     container_name: telegraf
     environment:
@@ -9,14 +9,10 @@ services:
       - HOST_ETC=/rootfs/etc
       - HOST_MOUNT_PREFIX=/rootfs
     env_file:
-      - default.env
+      - ../default.env
     volumes:
       - /home/jonas/docker/appdata/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf
       - /var/run/utmp:/var/run/utmp:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /:/rootfs:ro
-      - /sys:/rootfs/sys:ro
-      - /etc/rootfs/etc:ro
-      - /proc:/rootfs/proc:ro
-      -/run/udev:/run/udev:ro
-    restart: unless-stopped
+    restart: always
