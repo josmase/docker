@@ -17,10 +17,8 @@ services:
     env_file:
       - transmission.env
     volumes:
-      #- /mnt/user/downloads/Torrent/data/:/data
-      #- /mnt/user/downloads/:/downloads
-      #- /mnt/user/downloads/Torrent/watch/:/watch
-      #- /mnt/user/downloads/Torrent/torrent/:/mnt/user/T_Media/Torrent/
+      - /home/jonas/docker/appdata/transmission/:/data
+      - /mnt/storage/downloads/:/downloads
     ports:
       - 9091:9091
     restart: unless-stopped

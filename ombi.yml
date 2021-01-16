@@ -7,7 +7,6 @@ services:
       - default.env
     volumes:
       - /home/jonas/docker/appdata/ombi:/config
-      #- /mnt/downloads:/downloads
     ports:
       - 3579:3579
     restart: unless-stopped

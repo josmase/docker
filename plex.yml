@@ -8,7 +8,7 @@ services:
     volumes:
       - /home/jonas/docker/appdata/plex:/config
       - /tmp/transcode/plex:/transcode
-      #- /mnt/downloads:/movies
-      #- /mnt/downloads:/tv
+      - /mnt/storage/files/movies:/movies
+      - /mnt/storage/files/series:/tv
     network_mode: host
     restart: unless-stopped

@@ -7,8 +7,8 @@ services:
       - default.env
     volumes:
       - /home/jonas/docker/appdata/emby:/config
-     # - /path/to/tvshows:/data/tvshows
-     # - /path/to/movies:/data/movies
+      - /mnt/storage/files/series:/data/tvshows
+      - /mnt/storage/files/movies:/data/movies
     ports:
       - 8096:8096
       - 8920:8920

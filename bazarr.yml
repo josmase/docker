@@ -7,8 +7,8 @@ services:
       - default.env
     volumes:
       - /home/jonas/docker/appdata/bazarr:/config
-      #- </path/to/movies>:/movies
-      #- </path/to/tv>:/tv
+      - /mnt/storage/files/movies:/movies
+      - /mnt/storage/files/series:/tv
     ports:
       - 6767:6767
     restart: always

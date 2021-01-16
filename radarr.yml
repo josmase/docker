@@ -7,8 +7,8 @@ services:
       - default.env
     volumes:
       - /home/jonas/docker/appdata/radarr:/config
-      #- /mnt/downloads:/movies
-      #- /mnt/downloads:/downloads
+      - /mnt/storage/files/movies:/movies
+      - /mnt/storage/downloads/complete/movies:/downloads/complete/movies
     ports:
       - 7878:7878 
     restart: unless-stopped

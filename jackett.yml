@@ -7,7 +7,6 @@ services:
       - default.env
     volumes:
       - /home/jonas/docker/appdata/jackett:/config
-      #- /mnt/downloads:/downloads
     ports:
       - 9117:9117
     restart: unless-stopped

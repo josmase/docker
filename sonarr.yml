@@ -7,8 +7,8 @@ services:
       - default.env
     volumes:
       - /home/jonas/docker/appdata/sonarr:/config
-      #- /mnt/downloads:/media
-      #- /mnt/downloads:/downloads
+      - /mnt/storage/files/series:/media
+      - /mnt/storage/downloads/complete/series:/downloads/complete/series
     ports:
       - 8989:8989 
     restart: unless-stopped
