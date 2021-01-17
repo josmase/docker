@@ -3,10 +3,14 @@ services:
   influxdb:
     image: influxdb/influxdb
     container_name: influxdb
+    environment:
+      - INFLUXDB_DB=telegraf
+      - INFLUXDB_ADMIN_USER=telegraf
+      - INFLUXDB_ADMIN_PASSWORD=password
     env_file:
       - ../default.env
     volumes:
-      - /home/jonas/docker/appdata/influxdb:/var/lib/influxdb
+      - /home/jonas/docker/appdata/influxdb:/data
     ports:
       - 8083:8083
       - 8086:8086
