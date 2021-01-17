@@ -1,7 +1,7 @@
-version: "2.1"
+version: "3.7"
 services:
   grafana:
-    image: grafana/grafana
+    image: grafana/grafana:latest
     container_name: grafana
     env_file:
       - ../default.env
