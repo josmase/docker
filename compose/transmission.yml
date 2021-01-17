@@ -1,16 +1,16 @@
 version: "2.1"
 services:
   transmission:
-    image: haugene/transmission-openvpn:dev
+    image: haugene/transmission-openvpn
     container_name: transmission
     environment:
       - OPENVPN_CONFIG=norway
       - OPENVPN_PROVIDER=PIA
       - LOCAL_NETWORK=192.168.1.0/24
-      - OPENVPN_OPTS="--inactive 3600 --ping 10 --ping-exit 60 --mute-replay-warnings"
+     # - OPENVPN_OPTS="--inactive 3600 --ping 10 --ping-exit 60 --mute-replay-warnings"
       - TRANSMISSION_DOWNLOAD_DIR=/downloads/complete
       - TRANSMISSION_INCOMPLETE_DIR=/downloads/incomplete
-      - PIA_OPENVPN_CONFIG_BUNDLE=openvpn-tcp-nextgen
+      - PIA_OPENVPN_CONFIG_BUNDLE=openvpn
     env_file:
       - ../transmission.env
       - ../default.env
@@ -21,5 +21,4 @@ services:
       - 9091:9091
     cap_add:
       - NET_ADMIN
-    network_mode: host
     restart: always
