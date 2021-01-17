@@ -7,10 +7,10 @@ services:
     cap_add:
       - net_admin
     ports:
-      - 9091:9091 #jacket 
+      - 9091:9091 #transmission 
       - 7878:7878 #radarr
       - 8989:8989 #sonarr 
-      - 9117:9117 #transmission
+      - 9117:9117 #jackett
       - 6767:6767 #bazarr
     environment:
       REGION: "sweden"
@@ -20,6 +20,8 @@ services:
     env_file:
       - ../transmission.env
       - ../default.env
+    volumes:
+      - /home/jonas/docker/appdata/vpn/:/gluetun
 
 
   transmission:
