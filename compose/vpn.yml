@@ -32,7 +32,8 @@ services:
     env_file:
       - ../default.env
     volumes:
-      - /home/jonas/docker/appdata/transmission/:/data
+      - /home/jonas/docker/appdata/transmission/config:/config
+
       - /mnt/storage/downloads/:/downloads
     restart: always
 
@@ -86,4 +87,5 @@ services:
       - /mnt/storage/files/movies:/movies
       - /mnt/storage/files/series:/tv
     restart: always
+
 
