@@ -8,4 +8,6 @@ services:
       - ../default.env
     volumes:
       - /home/jonas/docker/appdata/homeassistant:/config
+    devices:
+      - /dev/ttyACM0:/dev/ttyACM0
     restart: always
