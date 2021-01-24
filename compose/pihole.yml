@@ -4,7 +4,7 @@ services:
     image: pihole/pihole
     container_name: pihole
     environment:
-      - ServerIP=192.168.1.4
+      - ServerIP=192.168.1.188
       - DNSMASQ_LISTENING=all
     env_file:
       - ../default.env
