@@ -1,0 +1,42 @@
+version: "3.7"
+services:
+  samba-server:
+    image: dperson/samba
+    container_name: samba-server
+   # environment:
+  #    USER: bob;bob
+   #   SHARE: Downloads;/mount/downloads;yes;no;no
+    env_file:
+      - ../default.env
+    volumes:
+      - /mnt/storage:/mount
+    ports:
+      - 137:137/udp
+      - 138:138/udp
+      - 139:139 # default smb port
+      - 445:445 # default smb port
+    restart: always    
+    command: '-s "Downloads;/mount/downloads;yes;no;no;bob" -u "bob;bobspasswd" -p'
+
+    #      -s "<name;/path>[;browse;readonly;guest;users;admins;writelist;comment]"
+#                Configure a share
+#                required arg: "<name>;</path>"
+#                <name> is how it's called for clients
+#                <path> path to share
+#                NOTE: for the default values, just leave blank
+#                [browsable] default:'yes' or 'no'
+#                [readonly] default:'yes' or 'no'
+#                [guest] allowed default:'yes' or 'no'
+#                NOTE: for user lists below, usernames are separated by ','
+#                [users] allowed default:'all' or list of allowed users
+#                [admins] allowed default:'none' or list of admin users
+#                [writelist] list of users that can write to a RO share
+#                [comment] description of share
+#    -u "<username;password>[;ID;group;GID]"       Add a user
+#                required arg: "<username>;<passwd>"
+#                <username> for user
+#                <password> for user
+#                [ID] for user
+#                [group] for user
+#                [GID] for group
+#      #SHARE: "mysharename;/mnt;yes;no;no;myuser;'none';'none';'my awesome share"
