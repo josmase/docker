@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   homeassistant:
-    image: homeassistant/home-assistant
+    image: ghcr.io/linuxserver/homeassistant
     container_name: homeassistant
     network_mode: host
     env_file:
