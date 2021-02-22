@@ -7,6 +7,4 @@ services:
       - ../default.env
     volumes:
       - /home/jonas/docker/appdata/ombi:/config
-    ports:
-      - 3579:3579
     restart: always
