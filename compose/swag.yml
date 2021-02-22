@@ -15,6 +15,6 @@ services:
     volumes:
       - /home/jonas/docker/appdata/swag:/config
     ports:
-      - 8080:80
+      - 8081:80
       - 4433:443
     restart: always
