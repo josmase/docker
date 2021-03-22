@@ -1,0 +1,20 @@
+version: "3.7"
+services:
+  tdarr:
+    image: haveagitgat/tdarr
+    container_name: tdarr
+    env_file:
+      - ../default.env
+    environment:
+      -  serverIP=0.0.0.0
+      -  serverPort=8266
+      -  webUIPort=8265
+    volumes:
+      - /home/jonas/docker/appdata/tdarr:/app/server
+      - /tmp/transcode/tdarr:/temp
+      - /mnt/storage/files/movies:/media/movies
+      - /mnt/storage/files/series:/media/tv
+    ports:
+      - 8265:8265
+      - 8266:8266
+    restart: always
