@@ -1,8 +1,11 @@
 #!/bin/bash
+cd "$(dirname "$0")"
+echo "Running in dir $PWD"
+
 echo =====================  $(date)  ==============================================
 source update.sh
 source down.sh
-source cleanup.sh
+#source cleanup.sh
 rsync -aP --delete ../appdata /mnt/storage/backups
 snapraid -c ../snapraid.conf sync
 #chown -R jonas:jonas ../ /mnt/storage
